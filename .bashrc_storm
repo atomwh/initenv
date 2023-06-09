@@ -1,0 +1,65 @@
+# ======================================
+# storm bashrc config
+# ======================================
+
+# command aliases
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ll='ls -alF'
+alias la='ls -a'
+alias l='ls -CF'
+alias ls='ls -A --color=auto'
+
+alias tree='tree -CAF --dirsfirst'
+alias treed='tree -CAFd'
+alias treesize='tree -CAFh'
+
+alias vi='vim'
+alias svi='sudo vim'
+alias svim='sudo vim'
+
+alias h='history'
+
+alias fullpath='readlink -f'
+
+alias ra='ranger'
+alias rg='ripgrep'
+
+alias fzft='fzf-tmux'
+source ~/local/bash-completion/fzf
+source ~/local/bash-completion/key-bindings.bash
+
+# directory move
+alias ..='cd ..;pwd'
+alias ...='cd ../..;pwd'
+alias ....='cd ../../..;pwd'
+
+# enviroment parameters
+HISTTIMEFORMAT="%F %T "
+HISTCONTROL=ignoredups
+HISTSIZE=5000
+HISTFILESIZE=5000
+
+export EDITOR=vim
+
+function hg()
+{
+	history | grep "$1"
+}
+function proxy_enable()
+{
+	export http_proxy="127.0.0.1:7890"
+	export https_proxy="127.0.0.1:7890"
+	export no_proxy="localhost,127.0.0.1,172.20.0.0/22"
+	echo "HTTP/HTTPS Proxy Enabled"
+}
+
+function proxy_disable()
+{
+	unset http_proxy
+	unset https_proxy
+	unset no_proxy
+	echo "HTTP/HTTPS Proxy Disabled"
+}
