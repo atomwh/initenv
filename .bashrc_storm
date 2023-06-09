@@ -31,7 +31,7 @@ alias fzft='fzf-tmux'
 source ~/local/bash-completion/fzf
 source ~/local/bash-completion/key-bindings.bash
 
-# directory move
+# directory moving
 alias ..='cd ..;pwd'
 alias ...='cd ../..;pwd'
 alias ....='cd ../../..;pwd'
@@ -48,6 +48,7 @@ function hg()
 {
 	history | grep "$1"
 }
+
 function proxy_enable()
 {
 	export http_proxy="127.0.0.1:7890"
